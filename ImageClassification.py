@@ -67,9 +67,10 @@ model.add(Dense(1))
 model.add(Activation('sigmoid'))
 
 model.summary()
-
+#To compile with loss
 model.compile(loss='binary_crossentropy', optimizer = 'rmsprop', metrics = ['accuracy'])
 
+#Feeding data to model
 model.fit_generator (
         train_generator,
         steps_per_epoch = nb_train_samples // batch_size,
@@ -78,6 +79,7 @@ model.fit_generator (
         validation_steps = nb_validation_samples // batch_size)
 
 #model.save_weights('model.h5')
+#Saving model into a .h5 file
 model.save('model.h5')
 
 img_pred = image.load_img('nikiopen.jpg', target_size = (150, 150))
